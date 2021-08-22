@@ -1,10 +1,10 @@
 package com.company;
-
 import java.util.HashMap;
 
 public class ProcessValues {
     private static int value;
     private static String variable;
+    private boolean processValues=true;
 
     public ProcessValues(String variable){
         ProcessValues.variable = variable;
@@ -23,11 +23,26 @@ public class ProcessValues {
             value = results.get(variable);
             System.out.println("x es "+ value);
         }else {
-            System.out.println("Invalid operation");
+            processValues=false;
+            System.out.println(variable +" was not saved yet");
+        }
+    }
+
+    public boolean continueProcess (HashMap<String,Integer> results) {
+        if(ProcessValues.isNummber()){
+            System.out.println("x es "+ value);
+            return true;
+        }else{
+            isInResults(results);
+            return continueProcessValues();
         }
     }
 
     public int getValue(){
         return value;
     }
+    private boolean continueProcessValues(){
+        return processValues;
+    }
+
 }
