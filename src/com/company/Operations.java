@@ -11,6 +11,9 @@ public class Operations {
             System.out.println("The variable "+ variable+" has the value of "+ results.get(variable));
         }
     }
+    public void Minus(int x, int y, String result){
+        System.out.println("Result is "+ (x-y) );
+    }
 
 
 }
