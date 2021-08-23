@@ -16,8 +16,9 @@ public class Main {
             Values values = new Values(input.nextLine());
             values.isValidOperation();
             valuesAndOperations = values.getValues();
-            Operations operation = new Operations(valuesAndOperations.get("operation"));
-            continueOperations = operation.choseOperation(valuesAndOperations,results);
+            Operations operation = new Operations(valuesAndOperations.get("operation"),results);
+            continueOperations = operation.choseOperation(valuesAndOperations);
+            results=operation.getResults();
         }
     }
 }
