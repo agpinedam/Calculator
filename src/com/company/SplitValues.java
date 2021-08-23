@@ -7,6 +7,7 @@ public class SplitValues {
     private final HashMap<String,String> Values = new HashMap<>();
     private final String[] nameValues = {"operation","x","y","result"};
     private final ArrayList<String> splitString = new ArrayList<>();
+    private boolean validateCommand=true;
 
     private final String input;
     private String[] splitStr;
@@ -36,6 +37,7 @@ public class SplitValues {
         if (splitString.contains(splitStr[0])){
             fillValues();
         }else{
+            validateCommand=false;
             System.out.println("Invalid operation");
         }
     }
@@ -46,12 +48,17 @@ public class SplitValues {
                 Values.put(nameValues[i], splitStr[i]);
             }
         }else {
+            validateCommand=false;
             System.out.println("Invalid command");
         }
     }
 
-    public HashMap<String,String> getSplitValues(){
+    public boolean isValidCommand(){
         separateValues();
+        return validateCommand;
+    }
+
+    public HashMap<String,String> getSplitValues(){
         return Values;
     }
 

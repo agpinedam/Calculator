@@ -25,7 +25,7 @@ public class Operations {
                     int x = intX.getValue();
                     int y = intY.getValue();
                     calculate(operation, x, y);
-                    if(result!=Integer.MAX_VALUE) System.out.println(result);
+                    if(result!=Integer.MAX_VALUE) System.out.println("The result is "+result);
                     save(valuesAndOperations.get("result"),result);
                 } else System.out.println("Please enter valid values");
             }
@@ -40,7 +40,7 @@ public class Operations {
             case "Divide"-> {
                 if(y!=0) result=x/y;
                 else {result=Integer.MAX_VALUE;
-                    System.out.println("Invalid operation, divided by 0");}
+                    System.out.println("Invalid operation, division by 0");}
             }
         }
     }

@@ -13,11 +13,13 @@ public class Main {
             System.out.println("Enter the command");
             Scanner input = new Scanner(System.in);
             SplitValues splitValues = new SplitValues(input.nextLine());
-            valuesAndOperations = splitValues.getSplitValues();
-            Operations operation = new Operations(valuesAndOperations.get("operation"),results);
-            operation.choseOperation(valuesAndOperations);
-            continueOperations = operation.continueOperation();
-            results=operation.getResults();
+            if(splitValues.isValidCommand()){
+                valuesAndOperations = splitValues.getSplitValues();
+                Operations operation = new Operations(valuesAndOperations.get("operation"),results);
+                operation.choseOperation(valuesAndOperations);
+                continueOperations = operation.continueOperation();
+                results=operation.getResults();
+            }
         }
     }
 }
