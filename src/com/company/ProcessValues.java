@@ -21,7 +21,6 @@ public class ProcessValues {
     public void isInResults(HashMap<String,Integer> results){
         if(results.containsKey(variable)) {
             value = results.get(variable);
-            System.out.println("x es "+ value);
         }else {
             processValues=false;
             System.out.println(variable +" was not saved yet");
@@ -30,7 +29,6 @@ public class ProcessValues {
 
     public boolean continueProcess (HashMap<String,Integer> results) {
         if(ProcessValues.isNummber()){
-            System.out.println("x es "+ value);
             return true;
         }else{
             isInResults(results);

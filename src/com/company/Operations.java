@@ -1,22 +1,22 @@
 package com.company;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 public class Operations {
     private final String operation;
     private int result;
-    private HashMap<String,Integer>results;
+    private final HashMap<String,Integer>results;
+    private boolean exit=true;
 
     public Operations(String operation,HashMap<String,Integer> results){
         this.operation=operation;
         this.results=results;
     }
 
-    public boolean choseOperation(HashMap<String,String>valuesAndOperations){
-        boolean exit=false;
+    public void choseOperation(HashMap<String,String>valuesAndOperations){
         switch (operation) {
-            case "Exit" -> exit = true;
+            case "Exit" -> exit = false;
             case "Show" -> Show(valuesAndOperations.get("x"), results);
             default -> {
                 GetXY intX = new GetXY(valuesAndOperations, results, "x");
@@ -27,10 +27,9 @@ public class Operations {
                     calculate(operation, x, y);
                     if(result!=Integer.MAX_VALUE) System.out.println(result);
                     save(valuesAndOperations.get("result"),result);
-                } else System.out.println("Please ingres valid values");
+                } else System.out.println("Please enter valid values");
             }
         }
-        return exit;
     }
 
     private void calculate(String operation, int x, int y){
@@ -51,12 +50,13 @@ public class Operations {
         else System.out.println("The variable "+ variable+" has the value of "+ results.get(variable));
     }
     private void save(String value,Integer result){
-        if(value!="" && result!=Integer.MAX_VALUE){
+        if(!Objects.equals(value, "") && result!=Integer.MAX_VALUE){
             results.put(value,result);
         }
     }
     public HashMap<String,Integer> getResults(){
         return results;
     }
+    public boolean continueOperation(){return exit;}
 
 }

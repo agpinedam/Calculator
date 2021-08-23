@@ -5,19 +5,18 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        boolean continueOperations = false;
+        boolean continueOperations=true;
         HashMap<String,String> valuesAndOperations;
         HashMap<String,Integer> results = new HashMap<>();
-        results.put("a",1);
 
-        while (!continueOperations) {
-            System.out.println("Ingrese el comando");
+        while (continueOperations) {
+            System.out.println("Enter the command");
             Scanner input = new Scanner(System.in);
-            Values values = new Values(input.nextLine());
-            values.isValidOperation();
-            valuesAndOperations = values.getValues();
+            SplitValues splitValues = new SplitValues(input.nextLine());
+            valuesAndOperations = splitValues.getSplitValues();
             Operations operation = new Operations(valuesAndOperations.get("operation"),results);
-            continueOperations = operation.choseOperation(valuesAndOperations);
+            operation.choseOperation(valuesAndOperations);
+            continueOperations = operation.continueOperation();
             results=operation.getResults();
         }
     }
