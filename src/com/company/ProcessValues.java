@@ -2,7 +2,7 @@ package com.company;
 import java.util.HashMap;
 
 public class ProcessValues {
-    private static int value;
+    private static float value;
     private static String variable;
     private boolean processValues=true;
 
@@ -12,13 +12,13 @@ public class ProcessValues {
 
     public static boolean isNummber(){
         try {
-            value = Integer.parseInt(variable);
+            value = Float.parseFloat(variable);
             return true;
         } catch (NumberFormatException e) {
             return false;
         }
     }
-    public void isInResults(HashMap<String,Integer> results){
+    public void isInResults(HashMap<String,Float> results){
         if(results.containsKey(variable)) {
             value = results.get(variable);
         }else {
@@ -27,7 +27,7 @@ public class ProcessValues {
         }
     }
 
-    public boolean continueProcess (HashMap<String,Integer> results) {
+    public boolean continueProcess (HashMap<String,Float> results) {
         if(ProcessValues.isNummber()){
             return true;
         }else{
@@ -36,7 +36,7 @@ public class ProcessValues {
         }
     }
 
-    public int getValue(){
+    public float getValue(){
         return value;
     }
     private boolean continueProcessValues(){

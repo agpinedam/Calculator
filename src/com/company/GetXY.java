@@ -3,12 +3,12 @@ import java.util.HashMap;
 
 public class GetXY {
     private final HashMap<String,String> valuesAndOperations;
-    private final HashMap<String,Integer> results;
+    private final HashMap<String,Float> results;
     String variable;
-    private int value;
+    private float value;
     boolean continueProcess = true;
 
-    public GetXY(HashMap<String,String> valuesAndOperations,HashMap<String,Integer> results, String variable){
+    public GetXY(HashMap<String,String> valuesAndOperations,HashMap<String,Float> results, String variable){
         this.valuesAndOperations = valuesAndOperations;
         this.results=results;
         this.variable =variable;
@@ -26,7 +26,7 @@ public class GetXY {
         isValue();
         return continueProcess;
     }
-    public int getValue(){
+    public float getValue(){
         return value;
     }
 }

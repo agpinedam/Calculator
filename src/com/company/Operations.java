@@ -5,11 +5,11 @@ import java.util.Objects;
 
 public class Operations {
     private final String operation;
-    private int result;
-    private final HashMap<String,Integer>results;
+    private float result;
+    private final HashMap<String, Float>results;
     private boolean exit=true;
 
-    public Operations(String operation,HashMap<String,Integer> results){
+    public Operations(String operation,HashMap<String,Float> results){
         this.operation=operation;
         this.results=results;
     }
@@ -22,8 +22,8 @@ public class Operations {
                 GetXY intX = new GetXY(valuesAndOperations, results, "x");
                 GetXY intY = new GetXY(valuesAndOperations, results, "y");
                 if (intX.isContinueProcess() && intY.isContinueProcess()) {
-                    int x = intX.getValue();
-                    int y = intY.getValue();
+                    float x = intX.getValue();
+                    float y = intY.getValue();
                     calculate(operation, x, y);
                     if(result!=Integer.MAX_VALUE) System.out.println("The result is "+result);
                     save(valuesAndOperations.get("result"),result);
@@ -32,7 +32,7 @@ public class Operations {
         }
     }
 
-    private void calculate(String operation, int x, int y){
+    private void calculate(String operation, float x, float y){
         switch (operation){
             case "Sum"-> result=x+y;
             case "Minus" -> result=x-y;
@@ -45,16 +45,16 @@ public class Operations {
         }
     }
 
-    private void Show(String variable, HashMap<String,Integer> results){
+    private void Show(String variable, HashMap<String,Float> results){
         if (!results.containsKey(variable))System.out.println("The variable "+variable+" was not saved yet");
         else System.out.println("The variable "+ variable+" has the value of "+ results.get(variable));
     }
-    private void save(String value,Integer result){
+    private void save(String value,Float result){
         if(!Objects.equals(value, "") && result!=Integer.MAX_VALUE){
             results.put(value,result);
         }
     }
-    public HashMap<String,Integer> getResults(){
+    public HashMap<String,Float> getResults(){
         return results;
     }
     public boolean continueOperation(){return exit;}

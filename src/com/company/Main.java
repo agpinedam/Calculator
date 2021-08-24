@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         boolean continueOperations=true;
         HashMap<String,String> valuesAndOperations;
-        HashMap<String,Integer> results = new HashMap<>();
+        HashMap<String,Float> results = new HashMap<>();
 
         while (continueOperations) {
             System.out.println("Enter the command");
