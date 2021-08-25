@@ -8,10 +8,10 @@ public class Main {
         boolean continueOperations=true;
         HashMap<String,String> valuesAndOperations;
         HashMap<String,Float> results = new HashMap<>();
+        Scanner input = new Scanner(System.in);
 
         while (continueOperations) {
             System.out.println("Enter the command");
-            Scanner input = new Scanner(System.in);
             SplitValues splitValues = new SplitValues(input.nextLine());
             if(splitValues.isValidCommand()){
                 valuesAndOperations = splitValues.getSplitValues();

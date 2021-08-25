@@ -25,7 +25,7 @@ public class Operations {
                     float x = intX.getValue();
                     float y = intY.getValue();
                     calculate(operation, x, y);
-                    if(result!=Integer.MAX_VALUE) System.out.println("The result is "+result);
+                    if(result!=Float.MAX_VALUE) System.out.println("The result is "+result);
                     save(valuesAndOperations.get("result"),result);
                 } else System.out.println("Please enter valid values");
             }
@@ -39,7 +39,7 @@ public class Operations {
             case "Multiply"-> result=x*y;
             case "Divide"-> {
                 if(y!=0) result=x/y;
-                else {result=Integer.MAX_VALUE;
+                else {result=Float.MAX_VALUE;
                     System.out.println("Invalid operation, division by 0");}
             }
         }
@@ -50,7 +50,7 @@ public class Operations {
         else System.out.println("The variable "+ variable+" has the value of "+ results.get(variable));
     }
     private void save(String value,Float result){
-        if(!Objects.equals(value, "") && result!=Integer.MAX_VALUE){
+        if(!Objects.equals(value, "") && result!=Float.MAX_VALUE){
             results.put(value,result);
         }
     }
